@@ -61,7 +61,8 @@ public class Game extends JFrame implements KeyListener
 	{
 		DocumentBuilderFactory DBF = DocumentBuilderFactory.newInstance();
 		
-		//DOM
+		//DOM Method
+		//TODO investigate instead using SAX
 		try {
 			DocumentBuilder DB = DBF.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {

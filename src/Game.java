@@ -16,10 +16,6 @@ public class Game extends JFrame implements KeyListener
 	private int i_windowWidth = 1600;
 	private int i_windowHeight = 800;
 	
-	
-	
-	
-	
 	public Game() //initialize
 	{
 		setSize(i_windowWidth, i_windowHeight);
@@ -69,7 +65,6 @@ public class Game extends JFrame implements KeyListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 	}
 	

@@ -10,9 +10,10 @@ import org.w3c.dom.*;
 
 public class Game extends JFrame implements KeyListener
 {
-	private Scene[] sceneArray = new Scene[2];//2 is placeholder. Is to be the length of all # of scenes
-	private int i_currentState = 0;//program states: main menu (0), game (1) and pause (2)
-	private int i_currentScene = 0;//i_sceneID for current scene
+	private int i_numOfScenes; //N.B. has to be properly set before init of 'sceneArray'.
+	private Scene[] sceneArray = new Scene[i_numOfScenes]; //TODO consider use of arraylist, it's also random access.
+	private int i_currentState = 0; //program states: main menu (0), game (1) and pause (2)
+	private int i_currentScene = 0; //i_sceneID for current scene
 	private int i_windowWidth = 1600;
 	private int i_windowHeight = 800;
 	
@@ -32,7 +33,7 @@ public class Game extends JFrame implements KeyListener
 	}
 	
 	
-	public void GameLoop() 
+	public void GameLoop() //
 	{
 		while(true)
 		{
@@ -68,7 +69,7 @@ public class Game extends JFrame implements KeyListener
 		
 	}
 	
-	public void Load()
+	public void Load() //TODO load saved game.
 	{
 		try
 		{
@@ -78,7 +79,7 @@ public class Game extends JFrame implements KeyListener
 		finally{}
 	}
 	
-	public void Save()
+	public void Save() //TODO save game to .txt-file. Should just be scene ID.
 	{
 		try
 		{
@@ -88,17 +89,19 @@ public class Game extends JFrame implements KeyListener
 		finally{}
 	}
 	
-	public void Pause()
+	public void SwitchFromOrToPauseState()
 	{
 		System.out.println("test pause");
 		
 		if(i_currentState == 1)
 		{
 			i_currentState = 2;
+			System.out.println("1 "+i_currentState);
 		}
 		else if(i_currentState == 2)
 		{
 			i_currentState = 1;
+			System.out.println("2 "+i_currentState);
 		}
 	}
 
@@ -111,7 +114,7 @@ public class Game extends JFrame implements KeyListener
 	@Override
 	public void keyReleased(KeyEvent KE) {
 		// TODO Auto-generated method stub
-		if(KE.getKeyCode() == KeyEvent.VK_SPACE)//TODO continue/scroll text & go to next scene
+		if(KE.getKeyCode() == KeyEvent.VK_SPACE) //TODO continue/scroll text & go to next scene
 		{
 			System.out.println("test space");
 			
@@ -121,14 +124,14 @@ public class Game extends JFrame implements KeyListener
 			}
 		}
 		
-		if(KE.getKeyCode() == KeyEvent.VK_ESCAPE)//TODO Pause
+		if(KE.getKeyCode() == KeyEvent.VK_ESCAPE) //TODO Pause
 		{
-			Pause();
+			SwitchFromOrToPauseState();
 		}
 		
-		if(KE.getKeyCode() == KeyEvent.VK_P)//TODO also pause
+		if(KE.getKeyCode() == KeyEvent.VK_P) //TODO also pause
 		{
-			Pause();
+			SwitchFromOrToPauseState();
 		}
 	}
 

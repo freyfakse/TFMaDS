@@ -1,23 +1,27 @@
 <?xml version = "1.0"?>
 <story>
-   	<scene ID = "0">
-		<parent_ID>null</parent_ID>
-		<children_IDs>1,2</children_IDs>
-		<characters>waifu0</characters>
+   	<scene>
+		<scene_ID>0</scene_ID>
+		<parent_ID>-1</parent_ID>
+		<child_ID>1</child_ID>
+		<child_ID>2</child_ID>
+		<actor>waifu0</actor>
       		<text>lorem ipsum0</text>
    	</scene>
    
-   	<scene ID = "1">
+   	<scene>
+		<scene_ID>1</scene_ID>
 		<parent_ID>0</parent_ID>
-		<children_IDs>null</children_IDs>
-		<characters>waifu1</characters>
+		<child_ID>null</child_ID>
+		<actor>waifu1</actor>
       		<text>lorem ipsum1</text>
    	</scene>
 
-	<scene ID = "2">
+	<scene>
+		<scene_ID>2</scene_ID>
 		<parent_ID>0</parent_ID>
-		<children_IDs>null</children_IDs>
-		<characters>waifu2</characters>
+		<child_ID>null</child_ID>
+		<actor>waifu2</actor>
       		<text>lorem ipsum2</text>
    	</scene>
 </story>

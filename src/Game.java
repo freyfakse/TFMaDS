@@ -54,6 +54,41 @@ public class Game extends JFrame implements KeyListener {
 	{
 		XML_loader xml = new XML_loader();
 		xml.LoadScenesFromXML();
+		
+		System.out.println("SCENEID ARR: " +xml.al_scenes.get(0).getI_sceneID());
+		System.out.println("PARENTID ARR: " +xml.al_scenes.get(0).getI_parent());
+		System.out.println("TEXTS: ARR: " +xml.al_scenes.get(0).getAl_texts().get(0));
+		
+		/*
+		
+		for(int i=0;i<xml.al_scenes.size();i++)
+		{
+			
+			
+			for(int x=0; x<xml.al_scenes.get(i).getAl_children().size(); x++)
+			{
+				System.out.println("SCENEID ARR: " +xml.al_scenes.get(i).getI_sceneID());
+				System.out.println("PARENTID ARR: " +xml.al_scenes.get(i).getI_parent());
+				System.out.println("CHILDRENIDS ARR: " +xml.al_scenes.get(i).getAl_children().get(x));
+			}
+			
+			for(int x=0; x<xml.al_scenes.get(i).getAl_actors().size(); x++)
+			{
+				System.out.println("SCENEID ARR: " +xml.al_scenes.get(i).getI_sceneID());
+				System.out.println("PARENTID ARR: " +xml.al_scenes.get(i).getI_parent());
+				System.out.println("ACTORIDS ARR:" +xml.al_scenes.get(i).getAl_actors().get(x));
+			}
+			
+			for(int x=0; x<xml.al_scenes.get(i).getAl_texts().size(); x++)
+			{
+				System.out.println("SCENEID ARR: " +xml.al_scenes.get(i).getI_sceneID());
+				System.out.println("PARENTID ARR: " +xml.al_scenes.get(i).getI_parent());
+				System.out.println("TEXTS: ARR: " +xml.al_scenes.get(i).getAl_texts().get(x));
+			}
+			
+		}
+		*/
+		
 	}
 
 	public void Load() // TODO load saved game.

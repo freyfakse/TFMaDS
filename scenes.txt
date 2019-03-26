@@ -5,23 +5,26 @@
 		<parent_ID>-1</parent_ID>
 		<child_ID>1</child_ID>
 		<child_ID>2</child_ID>
-		<actor>waifu0</actor>
+		<actor_ID>0</actor_ID>
+		<actor_ID>3</actor_ID>
       		<text>lorem ipsum0</text>
    	</scene>
    
    	<scene>
 		<scene_ID>1</scene_ID>
 		<parent_ID>0</parent_ID>
-		<child_ID>null</child_ID>
-		<actor>waifu1</actor>
+		<child_ID>-1</child_ID>
+		<actor_ID>2</actor_ID>
+		<actor_ID>0</actor_ID>
       		<text>lorem ipsum1</text>
    	</scene>
 
 	<scene>
 		<scene_ID>2</scene_ID>
 		<parent_ID>0</parent_ID>
-		<child_ID>null</child_ID>
-		<actor>waifu2</actor>
+		<child_ID>-1</child_ID>
+		<actor_ID>1</actor_ID>
+		<actor_ID>0</actor_ID>
       		<text>lorem ipsum2</text>
    	</scene>
 </story>

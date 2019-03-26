@@ -23,20 +23,15 @@ public class XML_loader {
 		try 
 		{
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
-			SAXParser saxParser = saxFactory.newSAXParser();
+			SAXParser sceneSaxParser = saxFactory.newSAXParser();
 
 			DefaultHandler saxHandler = new DefaultHandler() 
 			{	
 				boolean b_sceneID = false;
 				boolean b_parentID = false;
 				boolean b_childID = false;
-				boolean b_actor = false;
+				boolean b_actorID = false;
 				boolean b_text = false;
-				
-				int i_currentScene = 0; //Position of scene we're currently loading
-				int i_currentChild = 0; //Position of child scene in current scene's 'al_children' we're currently loading
-				int i_currentActor = 0; //Position of actor in current scene's 'al_actors' we're currently loading
-				int i_currentText = 0; //Position of text in current scene's 'al_texts' we're currently loading
 
 				public void startElement(String uri, String localName, String qName, Attributes attributes)
 						throws SAXException 
@@ -58,9 +53,9 @@ public class XML_loader {
 						b_childID = true;
 					}
 
-					if (qName.equalsIgnoreCase("b_actor")) 
+					if (qName.equalsIgnoreCase("actor_ID")) 
 					{
-						b_actor = true;
+						b_actorID = true;
 					}
 					
 					if (qName.equalsIgnoreCase("text")) 
@@ -74,30 +69,15 @@ public class XML_loader {
 					System.out.println("End Element :" + qName);
 					
 					if(qName.equalsIgnoreCase("scene"))
-					{
-						//al_scenes.set(i_currentScene, scene);
-						
-						i_currentScene ++;
-						
-						i_currentChild = 0;
-						i_currentActor = 0;
-						i_currentText = 0;
-						
-						System.out.println("current scene" +i_currentScene);
+					{	
+						al_scenes.add(scene);
+						scene.ResetVariables();
 					}
-					
-					if(qName.equalsIgnoreCase("child_ID"))
-					{
-						i_currentChild ++;
-					}
-					if(qName.equalsIgnoreCase("actor"))
-					{
-						i_currentActor ++;
-					}
-					if(qName.equalsIgnoreCase("text"))
-					{
-						i_currentText ++;
-					}
+					if(qName.equalsIgnoreCase("scene_ID")){}
+					if(qName.equalsIgnoreCase("parent_ID")){}
+					if(qName.equalsIgnoreCase("child_ID")){}
+					if(qName.equalsIgnoreCase("actor_ID")){}
+					if(qName.equalsIgnoreCase("text")){}
 				}
 
 				public void characters(char ch[], int start, int length) throws SAXException 
@@ -119,37 +99,49 @@ public class XML_loader {
 
 					if (b_childID) 
 					{
-						scene.getAl_children().ensureCapacity(i_currentChild+1);
 						System.out.println("ID of child : " + new String(ch, start, length));
-						
-						int holder = Integer.parseInt(new String(ch, start, length));
-						System.out.println("holder: " + holder +" i_cc: " +i_currentChild);
-						
-						scene.getAl_children().set(i_currentChild, holder);
+						scene.getAl_children().add(Integer.parseInt(new String(ch, start, length)));
+						/*
+						for(int i=0;i<scene.getAl_children().size();i++)
+						{
+							System.out.println("children array id: " +scene.getAl_children().get(i));
+						}
+						*/
 						b_childID = false;
 					}
 
-					if (b_actor) 
+					if (b_actorID) 
 					{
 						System.out.println("Name of actor : " + new String(ch, start, length));
-						scene.getAl_children().set(i_currentActor, Integer.parseInt(new String(ch, start, length)));
-						b_actor = false;
+						//scene.getAl_children().set(i_currentActor, Integer.parseInt(new String(ch, start, length)));
+						
+						scene.getAl_actors().add(Integer.parseInt(new String(ch, start, length)));
+						
+						b_actorID = false;
 					}
 					
 					if (b_text) 
 					{
 						System.out.println("text : " + new String(ch, start, length));
-						scene.getAl_children().set(i_currentText, Integer.parseInt(new String(ch, start, length)));
+						//scene.getAl_children().set(i_currentText, Integer.parseInt(new String(ch, start, length)));
+						
+						scene.getAl_texts().add(new String(ch, start, length));
+						
 						b_text = false;
 					}
 				}
 			};
 
-			saxParser.parse("scenes.txt", saxHandler);
+			sceneSaxParser.parse("scenes.txt", saxHandler);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void LoadActorsFromXML()
+	{
+		
+	}
+	
 }

@@ -1,30 +1,34 @@
 <?xml version = "1.0"?>
+
+<!--sceneid:1900... because s==letter #19-->
+<!--actor_ID:0100... because a==letter #1-->
+
 <story>
    	<scene>
-		<scene_ID>0</scene_ID>
+		<scene_ID>19001</scene_ID>
 		<parent_ID>-1</parent_ID>
-		<child_ID>1</child_ID>
-		<child_ID>2</child_ID>
-		<actor_ID>0</actor_ID>
-		<actor_ID>3</actor_ID>
+		<child_ID>19002</child_ID>
+		<child_ID>19003</child_ID>
+		<actor_ID>01001</actor_ID>
+		<actor_ID>01002</actor_ID>
       		<text>lorem ipsum0</text>
    	</scene>
    
    	<scene>
-		<scene_ID>1</scene_ID>
-		<parent_ID>0</parent_ID>
+		<scene_ID>19002</scene_ID>
+		<parent_ID>19001</parent_ID>
 		<child_ID>-1</child_ID>
-		<actor_ID>2</actor_ID>
-		<actor_ID>0</actor_ID>
+		<actor_ID>01002</actor_ID>
+		<actor_ID>01003</actor_ID>
       		<text>lorem ipsum1</text>
    	</scene>
 
 	<scene>
-		<scene_ID>2</scene_ID>
-		<parent_ID>0</parent_ID>
+		<scene_ID>19003</scene_ID>
+		<parent_ID>19001</parent_ID>
 		<child_ID>-1</child_ID>
-		<actor_ID>1</actor_ID>
-		<actor_ID>0</actor_ID>
+		<actor_ID>01001</actor_ID>
+		<actor_ID>01003</actor_ID>
       		<text>lorem ipsum2</text>
    	</scene>
 </story>

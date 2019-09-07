@@ -35,7 +35,7 @@ public class Game extends JFrame implements KeyListener {
 		{
 			while (i_currentState == 0)// main menu
 			{
-
+				
 			}
 
 			while (i_currentState == 1)// game
@@ -55,9 +55,9 @@ public class Game extends JFrame implements KeyListener {
 		XML_loader xml = new XML_loader();
 		xml.LoadScenesFromXML();
 		
-		System.out.println("SCENEID ARR: " +xml.al_scenes.get(0).getI_sceneID());
-		System.out.println("PARENTID ARR: " +xml.al_scenes.get(0).getI_parent());
-		System.out.println("TEXTS: ARR: " +xml.al_scenes.get(0).getAl_texts().get(0));
+		System.out.println("SCENEID ARR: " +xml.al_scenes.get(2).getI_sceneID());
+		System.out.println("PARENTID ARR: " +xml.al_scenes.get(2).getI_parent());
+		System.out.println("TEXTS: ARR: " +xml.al_scenes.get(2).getAl_texts());
 		
 		/*
 		

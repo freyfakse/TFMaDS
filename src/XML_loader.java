@@ -10,8 +10,8 @@ import org.xml.sax.helpers.DefaultHandler;
 public class XML_loader {
 	
 	
-	public ArrayList<Scene> al_scenes = new ArrayList<Scene>(10);
-	private Scene scene = new Scene(); 
+	public ArrayList<Scene> al_scenes = new ArrayList<Scene>(3);
+	private Scene scene = new Scene(); //TODO deprecate this & try using al.scenes(#).set.....
 	
 	public XML_loader()
 	{
@@ -139,7 +139,7 @@ public class XML_loader {
 		}
 	}
 	
-	public void LoadActorsFromXML()
+	public void LoadActorsFromXML() //may be redundant if actors can be stored in scenes.xml
 	{
 		
 	}
